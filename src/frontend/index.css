@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Figtree – body text ── */
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Plus Jakarta Sans – display headings ── */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.875rem;
+
+    /* ── NORCET Nursing Palette – soft teal/mint nursing aesthetic ── */
+    --background: 0.98 0.008 195;
+    --foreground: 0.22 0.03 220;
+    --card: 0.99 0.004 200;
+    --card-foreground: 0.22 0.03 220;
+    --popover: 0.99 0.004 200;
+    --popover-foreground: 0.22 0.03 220;
+
+    /* Teal-green primary */
+    --primary: 0.55 0.12 190;
+    --primary-foreground: 0.99 0 0;
+
+    --secondary: 0.93 0.025 195;
+    --secondary-foreground: 0.32 0.05 210;
+
+    --muted: 0.94 0.015 200;
+    --muted-foreground: 0.5 0.03 210;
+
+    --accent: 0.88 0.045 185;
+    --accent-foreground: 0.3 0.06 215;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.02 200;
+    --input: 0.9 0.018 200;
+    --ring: 0.55 0.12 190;
+
+    /* Nursing teal shades for subject cards */
+    --teal-50: 0.97 0.018 195;
+    --teal-100: 0.93 0.04 190;
+    --teal-200: 0.87 0.07 188;
+    --teal-500: 0.6 0.13 190;
+    --teal-600: 0.52 0.14 192;
+    --teal-700: 0.42 0.12 195;
+
+    --mint-50: 0.97 0.02 165;
+    --mint-500: 0.58 0.12 168;
+
+    --sky-50: 0.96 0.02 220;
+    --sky-500: 0.6 0.11 230;
+
+    --rose-50: 0.97 0.02 15;
+    --rose-500: 0.62 0.18 15;
+
+    --violet-50: 0.97 0.02 280;
+    --violet-500: 0.58 0.14 278;
+
+    --amber-50: 0.97 0.025 85;
+    --amber-500: 0.72 0.15 75;
+
+    --chart-1: 0.55 0.12 190;
+    --chart-2: 0.6 0.13 168;
+    --chart-3: 0.6 0.11 230;
+    --chart-4: 0.72 0.15 75;
+    --chart-5: 0.62 0.18 15;
+
+    --sidebar: 0.97 0.012 200;
+    --sidebar-foreground: 0.22 0.03 220;
+    --sidebar-primary: 0.55 0.12 190;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.93 0.025 195;
+    --sidebar-accent-foreground: 0.32 0.05 210;
+    --sidebar-border: 0.88 0.02 200;
+    --sidebar-ring: 0.55 0.12 190;
+  }
+
+  .dark {
+    --background: 0.15 0.02 220;
+    --foreground: 0.94 0.012 200;
+    --card: 0.2 0.025 218;
+    --card-foreground: 0.94 0.012 200;
+    --popover: 0.22 0.025 215;
+    --popover-foreground: 0.94 0.012 200;
+
+    --primary: 0.65 0.14 190;
+    --primary-foreground: 0.1 0.02 220;
+
+    --secondary: 0.26 0.03 215;
+    --secondary-foreground: 0.88 0.015 200;
+
+    --muted: 0.24 0.025 218;
+    --muted-foreground: 0.6 0.03 210;
+
+    --accent: 0.3 0.04 210;
+    --accent-foreground: 0.9 0.015 200;
+
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 1 0 0 / 12%;
+    --input: 1 0 0 / 14%;
+    --ring: 0.65 0.14 190;
+
+    --teal-50: 0.22 0.03 210;
+    --teal-100: 0.25 0.04 205;
+    --teal-200: 0.28 0.05 200;
+    --teal-500: 0.6 0.13 190;
+    --teal-600: 0.65 0.14 190;
+    --teal-700: 0.72 0.13 188;
+
+    --chart-1: 0.65 0.14 190;
+    --chart-2: 0.65 0.13 168;
+    --chart-3: 0.65 0.12 230;
+    --chart-4: 0.75 0.15 75;
+    --chart-5: 0.68 0.18 15;
+
+    --sidebar: 0.18 0.022 218;
+    --sidebar-foreground: 0.94 0.012 200;
+    --sidebar-primary: 0.65 0.14 190;
+    --sidebar-primary-foreground: 0.1 0.02 220;
+    --sidebar-accent: 0.26 0.03 215;
+    --sidebar-accent-foreground: 0.88 0.015 200;
+    --sidebar-border: 1 0 0 / 12%;
+    --sidebar-ring: 0.65 0.14 190;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Figtree", "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Plus Jakarta Sans", "Figtree", system-ui, sans-serif;
+  }
+}
+
+/* Safe area for mobile bottom nav */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Smooth page transitions */
+.page-enter {
+  animation: pageIn 0.25s ease-out;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subject card color variants */
+.subject-card-teal { background: oklch(var(--teal-50)); border-color: oklch(var(--teal-200)); }
+.subject-card-mint { background: oklch(var(--mint-50)); border-color: oklch(0.85 0.05 165); }
+.subject-card-sky { background: oklch(var(--sky-50)); border-color: oklch(0.85 0.04 220); }
+.subject-card-rose { background: oklch(var(--rose-50)); border-color: oklch(0.87 0.05 15); }
+.subject-card-violet { background: oklch(var(--violet-50)); border-color: oklch(0.87 0.04 280); }
+.subject-card-amber { background: oklch(var(--amber-50)); border-color: oklch(0.88 0.06 85); }
+
+.dark .subject-card-teal { background: oklch(0.22 0.03 192); border-color: oklch(0.3 0.06 190); }
+.dark .subject-card-mint { background: oklch(0.22 0.03 165); border-color: oklch(0.3 0.06 165); }
+.dark .subject-card-sky { background: oklch(0.22 0.03 225); border-color: oklch(0.3 0.05 225); }
+.dark .subject-card-rose { background: oklch(0.22 0.03 15); border-color: oklch(0.3 0.06 15); }
+.dark .subject-card-violet { background: oklch(0.22 0.03 278); border-color: oklch(0.3 0.05 278); }
+.dark .subject-card-amber { background: oklch(0.22 0.03 80); border-color: oklch(0.3 0.06 80); }
+
+/* Bottom nav bar */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: oklch(var(--card));
+  border-top: 1px solid oklch(var(--border));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Video player */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #000;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: oklch(var(--border)); border-radius: 99px; }
